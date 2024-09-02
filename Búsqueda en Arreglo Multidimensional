@@ -1,0 +1,36 @@
+# Definición de la matriz bidimensional
+matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+def buscar_valor(matriz, valor):
+    """
+    Busca un valor en una matriz bidimensional.
+
+    Args:
+    matriz (list of list of int): La matriz en la que buscar.
+    valor (int): El valor a buscar.
+
+    Returns:
+    tuple: Una tupla con dos elementos, la primera es un booleano que indica si el valor se encontró,
+           y la segunda es una tupla con las coordenadas (fila, columna) si se encontró.
+    """
+    for i, fila in enumerate(matriz):
+        for j, elemento in enumerate(fila):
+            if elemento == valor:
+                return (True, (i, j))
+    return (False, None)
+
+# Valor a buscar
+valor_a_buscar = 5
+
+# Llamada a la función
+encontrado, posicion = buscar_valor(matriz, valor_a_buscar)
+
+# Mostrar el resultado
+if encontrado:
+    print(f"Valor {valor_a_buscar} encontrado en la posición {posicion}.")
+else:
+    print(f"Valor {valor_a_buscar} no encontrado en la matriz.")
