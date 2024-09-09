@@ -1,0 +1,31 @@
+import numpy as np
+
+# Supongamos que tenemos 3 ciudades, 7 días por semana, y 4 semanas
+num_ciudades = 3
+num_dias = 7
+num_semanas = 4
+
+# Crear una matriz 3D con temperaturas aleatorias
+# Para simplificar, generamos valores aleatorios entre 15 y 30 grados
+np.random.seed(0)  # Para reproducibilidad
+temperaturas = np.random.randint(15, 31, size=(num_ciudades, num_dias, num_semanas))
+
+# Inicializar una matriz para almacenar los promedios
+promedios_semanales = np.zeros((num_ciudades, num_semanas))
+
+# Calcular el promedio de temperaturas para cada ciudad por cada semana
+for ciudad in range(num_ciudades):
+    for semana in range(num_semanas):
+        # Extraer las temperaturas para la ciudad y semana específica
+        temperaturas_semana = temperaturas[ciudad, :, semana]
+        # Calcular el promedio de temperaturas
+        promedio = np.mean(temperaturas_semana)
+        # Guardar el promedio en la matriz de promedios
+        promedios_semanales[ciudad, semana] = promedio
+
+# Mostrar los resultados
+for ciudad in range(num_ciudades):
+    print(f"Ciudad {ciudad + 1}:")
+    for semana in range(num_semanas):
+        print(f"  Promedio semana {semana + 1}: {promedios_semanales[ciudad, semana]:.2f}°C")
+    print()
