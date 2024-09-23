@@ -1,0 +1,49 @@
+def calcular_descuento(monto_total, porcentaje_descuento=10):
+    # Calcula el descuento
+    descuento = monto_total * (porcentaje_descuento / 100)
+    return descuento
+
+# Programa principal
+if __name__ == "__main__":
+    print("Bienvenido a la calculadora de descuentos.")
+    
+    productos = []
+    
+    while True:
+        # Pedir información del producto
+        monto = float(input("\nIngrese el monto total del producto: "))
+        porcentaje_input = input("Ingrese el porcentaje de descuento (o presione Enter para 10%): ")
+
+        # Verifica si se proporcionó un porcentaje
+        if porcentaje_input:
+            porcentaje = float(porcentaje_input)
+        else:
+            porcentaje = 10  # Porcentaje predeterminado
+
+        # Calcular descuento
+        descuento = calcular_descuento(monto, porcentaje)
+        monto_final = monto - descuento
+
+        # Guardar información del producto
+        productos.append((monto, porcentaje, descuento, monto_final))
+
+        # Preguntar si desea agregar otro producto
+        continuar = input("¿Desea agregar otro producto? (s/n): ").lower()
+        if continuar != 's':
+            break
+
+    # Mostrar resultados finales
+    total_compra = sum(monto for monto, _, _, _ in productos)
+    total_descuento = sum(descuento for _, _, descuento, _ in productos)
+    total_final = total_compra - total_descuento
+
+    print("\n--- Resumen de la Compra ---")
+    for i, (monto, porcentaje, descuento, monto_final) in enumerate(productos, start=1):
+        print(f"Producto {i}:")
+        print(f"  Monto: ${monto:.2f}")
+        print(f"  Descuento ({porcentaje}%): ${descuento:.2f}")
+        print(f"  Monto Final: ${monto_final:.2f}\n")
+
+    print(f"Monto Total de la Compra: ${total_compra:.2f}")
+    print(f"Monto Total de Descuentos: ${total_descuento:.2f}")
+    print(f"Monto Final a Pagar: ${total_final:.2f}")
