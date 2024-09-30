@@ -1,0 +1,22 @@
+# Primero definimos un diccionario llamado informacion_personal que almacena información ficticia sobre una persona
+informacion_personal = {
+    "nombre": "Maria Pérez",
+    "edad": 25,
+    "ciudad": "Quito",
+    "profesion": "Ingeniera"
+}
+
+# Modificamos el valor de la clave "ciudad" de "Madrid" a "Barcelona" y cambiamos la profesión de "Ingeniero" a "Desarrollador"
+informacion_personal["ciudad"] = "Cuenca"
+informacion_personal["profesion"] = "Desarrolladora"
+
+# Aquí comprobamos si la clave "telefono" no existe. Si no está, la agregamos con un número ficticio.
+if "telefono" not in informacion_personal:
+    informacion_personal["telefono"] = "0959654823"
+
+# Verificamos si la clave "edad" está presente en el diccionario y, de ser así, la eliminamos
+if "edad" in informacion_personal:
+    del informacion_personal["edad"]
+
+# Finalmente, imprimimos el diccionario modificado para ver los cambios realizados.
+print(informacion_personal)
