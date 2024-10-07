@@ -1,0 +1,19 @@
+# Escritura de Archivo de Texto
+
+# Creamos y abrimos el archivo 'my_notes.txt' en modo escritura
+with open('my_notes.txt', 'w') as file:
+    # Escribimos tres líneas de notas personales en el archivo
+    file.write("Nota 1: Recoger la ropa de la lavandería.\n")
+    file.write("Nota 2: Comprar ingredientes para la cena.\n")
+    file.write("Nota 3: Llamar a Juan para ponernos al día.\n")
+
+# Lectura de Archivo de Texto
+
+# Abrimos el archivo 'my_notes.txt' en modo lectura
+with open('my_notes.txt', 'r') as file:
+    # Leemos y mostramos el contenido línea por línea
+    for line in file:
+        print(line.strip())  # strip() elimina los espacios en blanco y saltos de línea
+
+# No es necesario cerrar el archivo manualmente debido al uso de 'with',
+# que se encarga de cerrar el archivo automáticamente.
